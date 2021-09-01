@@ -22,16 +22,14 @@ public class A_Bubble extends Sort
             //减去i的意思是每次排好后，后面已经排好的就不用管了，比如5个数1 3 4 2 5，第一次最后的5确定，第二次4确定，第三次的时候只用比较前三个数1 3 2 里找最大值
             for (int j = 0; j < nums.length - 1 - i; j++)//例如i = 2表示第三次，j < num.length(5) - 1 - 2 = 2; 【j = 0, j< 2】三个数比较两次
             {
-                if(nums[j] > nums[j +1])
+                if(nums[j] > nums[j + 1])
                 {
                     flag = false;
                     swap(nums,j,j+1);
                 }
-
-                if(flag)
-                    break;
-
             }
+            if(flag)
+                break;
         }
     }
 
@@ -39,8 +37,8 @@ public class A_Bubble extends Sort
     @Test
     public void BubbleTest()
     {
-        int[] num = new int[]{1,3,4,2,5,8};
-        sort(num);
-        System.out.println(Arrays.toString(num));
+        int[] nums = new int[]{1,3,4,2,5,8};
+        sort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }

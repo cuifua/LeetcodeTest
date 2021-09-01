@@ -1,55 +1,64 @@
 package com.top100.G_Sort;
 
 import com.top100.G_Sort.Sort.Sort;
+import org.junit.Test;
 
 /**
  * @Author cuifua
  * @Date 2021/7/20 15:00
  * @Version 1.0
  */
-public class F_Merge extends Sort
+public class F_Merge
 {
-    //合并时，需要辅助数组，空间复杂度为 O(N)
-    private Integer[] aux;
-
-    //归并方法：将数组中两个已经排序的部分归并成一个。
-    //l需要合并的数组左端，m中点，h需要合并的数组右端
-    private void merge(int[] nums, int l, int m, int h)
+    public void mergeSort(int[] nums,int left, int right)// 需要辅助数组，空间复杂度为 O(N)
     {
-        int i = l, j = m+1;
-        for(int k = l; k <= h; k++)
-            aux[k] = nums[k];//将数据复制到辅助数组
-
-        for(int k = l; k <= h; k++)
+        if(left < right)
         {
-            if(i > m)
-                nums[k] = aux[j++];
-            else if(j > h)
-                nums[k] = aux[i++];
-            else if(aux[i]<=aux[j])
-                nums[k] = aux[i++];
-            else
-                nums[k] = aux[j++];
+            int mid = left + (right - left)/2;
+            mergeSort(nums,0,mid);//将左边部分继续分
+            mergeSort(nums,mid+1,right);//将右边部分继续分
+
+            merge(nums, left, mid, right);//合并
         }
     }
 
-    //将一个大数组分成两个小数组去求解。
-    //因为每次都将问题对半分成两个子问题，这种对半分的算法复杂度一般为 O(NlogN)。
-    @Override
-    public void sort(int[] nums)
+    public void merge(int[] nums,int left, int mid, int right)// 将分开的数开始有序合并
     {
-        aux = new Integer[nums.length];
-        sort(nums, 0, nums.length-1);
+        int i = left;      //3 4 6 8    7 4 1  ---->这里的3相当于i, 7相当于j
+        int j = mid + 1;
+        int index = left;//临时数组的下标
+        int[] temp = new int[nums.length];
+
+        while(i <= mid && j <=right)
+        {
+            if(nums[i] < nums[j])  //如果3小于7，那么临时数组里面填的就是nums[i]
+                temp[index++] = nums[i++];
+
+            else
+                temp[index++] = nums[j++];
+        }
+
+
+        while(i <= mid) temp[index++] = nums[i++];//如果左边的没合并进去，就是3左边的
+
+        while(j <= right)  temp[index++] = nums[j++];   //如果右边的没合并进去，就是1右边的
+
+        //将temp里的数填充到数组的指定位置
+        for (int m = left; m <=right; m++)
+            nums[m]=temp[m];
     }
 
-    private void sort(int[] nums, int l, int h)
-    {
-        if(h<=l)
-            return;
 
-        int mid = l + (h - l)/2;
-        sort(nums, l, mid);
-        sort(nums, mid+1, h);
-        merge(nums, l, mid, h);
+
+
+
+    @Test
+    public void Mergetest()
+    {
+        int[] nums = {49, -38, 65, -97, 76, 13, 27, 50};
+        mergeSort(nums, 0, nums.length - 1);
+        System.out.println("排好序的数组：");
+        for (int e : nums)
+            System.out.print(e + " ");
     }
 }
