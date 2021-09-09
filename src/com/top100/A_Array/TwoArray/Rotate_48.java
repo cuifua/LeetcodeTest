@@ -27,4 +27,11 @@ public class Rotate_48
             }
         }
     }
+    
+    public void swap(int[][] nums…)
+    {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 }
