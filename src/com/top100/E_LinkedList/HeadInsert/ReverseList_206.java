@@ -8,6 +8,7 @@ import com.top100.E_LinkedList.NoClass.ListNode;
 
 public class ReverseList_206
 {
+    /*
     public ListNode reservelist(ListNode head)
     {
         ListNode pre = null;
@@ -21,6 +22,22 @@ public class ReverseList_206
             curr = temp;                //目前的结点往下走，将刚刚临时节点存储的值拿过来
         }
         return pre;
+    }
+
+     */
+    //递归法
+    public ListNode reverseList(ListNode head)
+    {
+        return reverse(null,head);
+    }
+
+    private static ListNode reverse(ListNode pre,ListNode cur)
+    {
+        if(cur==null) return pre;
+
+        ListNode next = cur.next;
+        cur.next = pre;
+        return reverse(cur,next);
     }
 }
 

@@ -34,10 +34,10 @@ public class SearchInsert_35
             int mid = left + (right - left) / 2;
 
             if (nums[mid] < target)
-                left = mid + 1;//下一轮搜索的区间是 [mid + 1..right]
+                left = mid + 1;//下一轮搜索的区间是 [mid + 1..right)
 
             else
-                right = mid;    //下一轮搜索的区间是 [left..mid]
+                right = mid;    //下一轮搜索的区间是 [left..mid)
         }
         return left;            //or  return right
     }

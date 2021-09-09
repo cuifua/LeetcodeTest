@@ -1,5 +1,7 @@
 package Test;
 
+import kotlin.jvm.Synchronized;
+
 /**
  * @Author cuifua
  * @Date 2021/8/17 20:20
@@ -12,9 +14,9 @@ public class Singleton
     private Singleton(){};
 
     public static synchronized Singleton getInstance(){
-        if(instanse == null){
+        if(instanse == null)
             instanse = new Singleton();
-        }
+
         return instanse;
     }
      */

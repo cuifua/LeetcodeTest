@@ -1,5 +1,4 @@
-package com.top100.J_Dynamic;
-
+package com.top100.J_Dynamic.Profit;
 import org.junit.Test;
 
 public class MaxProfit
@@ -43,11 +42,9 @@ public class Solution {
     public int maxProfit(int[] prices) {
         int len = prices.length;
         // 特殊判断
-        if (len < 2) {
-            return 0;
-        }
-        int[][] dp = new int[len][2];
+        if (len < 2)  return 0;
 
+        int[][] dp = new int[len][2];
         // dp[i][0] 下标为 i 这天结束的时候，不持股，手上拥有的现金数
         // dp[i][1] 下标为 i 这天结束的时候，持股，手上拥有的现金数
 

@@ -11,7 +11,7 @@ import java.util.List;
 ¡¾ÀıÌâ¡¿ÊäÈë£ºs = "aab"
       Êä³ö£º[["a","a","b"],["aa","b"]]
  */
-public class Partition
+public class Partition_131
 {
     List<List<String>> result = new ArrayList<>();
 

@@ -1,7 +1,9 @@
-package com.top100.I_Backtracking.Arrange;
+package com.top100.C_String.DUIbI;
 /*
-【题目】给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
-【例题】  输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+【题目】
+    给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+【例题】
+         输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
          输出:
          [
             ["ate","eat","tea"],
@@ -10,7 +12,6 @@ package com.top100.I_Backtracking.Arrange;
         ]
  */
 import org.junit.Test;
-
 import java.util.*;
 
 class GroupAnagrams_49

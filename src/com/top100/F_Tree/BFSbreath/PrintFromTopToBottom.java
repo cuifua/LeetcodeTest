@@ -24,22 +24,18 @@ public class PrintFromTopToBottom
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root)
     {
         ArrayList<Integer> result = new ArrayList<>();
-
-        if(root == null)
-            return result;
+        if(root == null)  return result;
 
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        q.offer(root);
 
         while(!q.isEmpty())
         {
             TreeNode node = q.poll();
             result.add(node.val);
 
-            if(node.left != null)
-                q.add(node.left);
-            if(node.right != null)
-                q.add(node.right);
+            if(node.left != null)   q.offer(node.left);
+            if(node.right != null)  q.offer(node.right);
         }
         return result;
     }

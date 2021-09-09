@@ -42,22 +42,22 @@ import com.top100.F_Tree.TreeNode;
  */
 public class IsSubTree_572
 {
-    public boolean isSubtree(TreeNode s, TreeNode t)
+    public boolean isSubtree(TreeNode root1, TreeNode root2)
     {
-        if(s == null) return false;
-        return isSubtreeFromRoot(s,t) || isSubtree(s.left,t) || isSubtree(s.right,t);
+        if(root1 == null) return false;
+        return isSubtreeFromRoot(root1,root2) || isSubtree(root1.left,root2) || isSubtree(root1.right,root2);
     }
 
-    public boolean isSubtreeFromRoot(TreeNode s, TreeNode t)
+    public boolean isSubtreeFromRoot(TreeNode root1, TreeNode root2)
     {
-        if(s == null && t == null)
+        if(root1 == null && root2 == null)
             return true;
 
-        if(s == null || t == null)
+        if(root1 == null || root2 == null)
             return false;
 
-        if(s.val != t.val) return false;
+        if(root1.val != root2.val) return false;
 
-        return isSubtreeFromRoot(s.left, t.left) && isSubtreeFromRoot(s.right, t.right);
+        return isSubtreeFromRoot(root1.left, root2.left) && isSubtreeFromRoot(root1.right, root2.right);
     }
 }

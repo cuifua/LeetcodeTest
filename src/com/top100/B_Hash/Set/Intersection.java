@@ -23,23 +23,22 @@ public class Intersection
 
         //把nums1中的元素全部加入到集合set1中
         for (int n1 : nums1)
-        {
             set1.add(n1);
-        }
 
         //查看nums2中的元素是否存在集合set1中，如果存在，就加入到集合set2中
         for (int n2 : nums2)
         {
-            if(set1.contains(n2))   set2.add(n2);
+            if(set1.contains(n2))
+                set2.add(n2);
         }
 
         //下面一大坨是把集合set2放进数组int[]
         int i = 0;
         int[] res = new int[set2.size()];
+
         for (Integer num : set2)
-        {
             res[i++] = num;
-        }
+
         return res;
     }
 

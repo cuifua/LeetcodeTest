@@ -2,11 +2,11 @@ package com.top100.A_Array.MoveWindows;
 
 import org.junit.Test;
 /*
-思路
+【思路】
     首先，不可避免的是要遍历数组，上来就先写好for循环
     遍历的同时要记录两个值：一是子数组的和tmpSum；二是子数组的和在变化过程中产生的最大值res
     本题最重要的部分在于子数组的和的计算，核心代码就是
-【tmpSum = Math.max(tmpSum + num, num);】
+    【tmpSum = Math.max(tmpSum + num, num);】
 下面开始啰嗦地解释以上代码：
 为什么是tmpSum + num 和 num 之间取最大值呢？
    1、 我们可以先考虑一下什么时候tmpSum + num会小于num，也就是当前数num之前的数的和是负数的时候，

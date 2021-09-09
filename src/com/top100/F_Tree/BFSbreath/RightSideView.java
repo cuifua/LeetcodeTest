@@ -22,24 +22,23 @@ import java.util.Queue;
  */
 public class RightSideView
 {
-    List<Integer> result = new ArrayList<>();
-
     public List<Integer> rightView(TreeNode root)
     {
+        List<Integer> result = new ArrayList<>();
         Queue<TreeNode> queue = new ArrayDeque<>();
         if (root == null) return result;
 
         queue.offer(root);
-        int n = queue.size();
+        int size = queue.size();
 
         while (!queue.isEmpty())
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < size; i++)
             {
                 TreeNode node = queue.poll();
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
-                if (i == n - 1) result.add(node.val);
+                if (i == size - 1) result.add(node.val);
             }
         }
         return result;

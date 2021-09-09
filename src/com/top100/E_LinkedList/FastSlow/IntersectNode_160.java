@@ -39,7 +39,7 @@ public class IntersectNode
 }
 --------------------------------------Hash集合用法 */
 
-public class IntersectNode
+public class IntersectNode_160
 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB)
     {

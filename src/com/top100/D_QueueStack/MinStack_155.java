@@ -5,13 +5,14 @@ import org.junit.Test;
 import java.util.Deque;
 import java.util.LinkedList;
 
-/**
+/*
  * 【题目】
  *      设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈
  * 【思路】
  *      https://leetcode-cn.com/problems/min-stack/solution/zui-xiao-zhan-by-leetcode-solution/
  *      看动画，明明白白
  */
+
 public class MinStack_155
 {
     Deque<Integer> xStack;

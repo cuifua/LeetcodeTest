@@ -1,6 +1,7 @@
 package com.top100.F_Tree.DFSdeep;
-
 import com.top100.F_Tree.TreeNode;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author cuifua
@@ -28,6 +29,7 @@ import com.top100.F_Tree.TreeNode;
  */
 public class Rob_JianGe_337
 {
+    /*  1、直接递归，复杂度高
     public int rob(TreeNode root)
     {
         if(root == null)
@@ -40,5 +42,50 @@ public class Rob_JianGe_337
         int val2 = rob(root.left) + rob(root.right);
 
         return Math.max(val1, val2);
+    }
+     */
+
+    /*  2、加了备忘录
+    public int rob(TreeNode root)
+    {
+        Map<TreeNode,Integer> map = new HashMap<>();
+        return dfs(root,map);
+    }
+    public int dfs(TreeNode root, Map<TreeNode,Integer> map)
+    {
+        if(root == null) return 0;
+
+        if(map.containsKey(root))//优化以后加了备忘录
+            return map.get(root);
+
+        int val1 = root.val;
+        if(root.left != null) val1 += rob(root.left.left) + rob(root.left.right);
+        if(root.right != null) val1 += rob(root.right.left) + rob(root.right.right);
+
+        int val2 = rob(root.left) + rob(root.right);
+
+        return Math.max(val1, val2);
+    }
+     */
+
+    //动态规划，0偷1不偷，当前结点选择偷的话，选择当前结点和左右不偷状态，----当前结点不偷的话，选择左右两孩子偷的情况
+    public int rob(TreeNode root)
+    {
+        int[] dp = dfs(root);
+        return Math.max(dp[0],dp[1] );
+    }
+
+    public int[] dfs(TreeNode node)
+    {
+        if(node == null)  return new int[]{0,0};
+
+        int[] left = dfs(node.left);
+        int[] right = dfs(node.right);
+
+        int[] cur = new int[2];//0不偷，1偷
+        cur[0] = Math.max(left[0],left[1]) + Math.max(right[0],right[1]);//不偷：Max(左孩子不偷，左孩子偷) + Max(右孩子不偷，右孩子偷)
+        cur[1] = node.val + left[0] + right[0];// 偷：左孩子不偷+ 右孩子不偷 + 当前节点偷
+
+        return cur;
     }
 }

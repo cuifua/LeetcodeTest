@@ -26,13 +26,13 @@ public class RemoveElement_27
 {
     public  int remove (int[] nums , int val)
     {
-        int result = 0;
+        int index = 0;
         for(int num : nums)
         {
             if(num != val)
-                nums[result++] = num;
+                nums[index++] = num;
         }
-        return result;
+        return index;
     }
 }
 

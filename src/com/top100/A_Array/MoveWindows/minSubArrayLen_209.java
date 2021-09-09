@@ -25,8 +25,7 @@ class minSubArrayLen_209
     {
         int left = 0;              //滑动窗口的左窗口
         int right = 0;             //滑动窗口的右窗口
-        int res = nums.length+1;   //最终的结果
-        int len = 0;               //记录一下子数组的长度
+        int len = nums.length+1;   //最终的结果
         int sum = 0;               //窗口内的数字之和
 
         while(right < nums.length)  //窗口区间[left,right)
@@ -35,12 +34,11 @@ class minSubArrayLen_209
             right ++;
             while (sum >= target)
             {
-                len = right - left;
-                res = Math.min(res,len);
+                len = Math.min(len,right-left);
                 sum -= nums[left];   //左窗口的数字出去
                 left ++;             //滑动窗口往右边移动
             }
         }
-        return res == nums.length+1 ? 0 : res;
+        return len == nums.length+1 ? 0 : len;
     }
 }

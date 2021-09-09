@@ -1,4 +1,4 @@
-package com.top100.F_Tree.DFSdeep;
+package com.top100.F_Tree.DFSdeep.samePath;
 
 import com.top100.F_Tree.TreeNode;
 
@@ -36,8 +36,8 @@ public class DiameterOfBinaryTree_543
 
         int l = maxDepth(root.left);
         int r = maxDepth(root.right);
-        max = Math.max(max,l+r);
+        max = Math.max(max,l+r);//【这里需要的输出是最长路径，而递归返回值是当前子树的高度。】
 
-        return Math.max(l,r) + 1;
+        return Math.max(l,r) + 1;//【这里需要的输出是最长路径，而递归返回值是当前子树的高度。】
     }
 }

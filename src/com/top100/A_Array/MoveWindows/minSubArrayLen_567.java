@@ -2,7 +2,6 @@ package com.top100.A_Array.MoveWindows;
 
 import java.util.Arrays;
 import java.util.HashMap;
-
 /*
  * 【题目】
  *       给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
@@ -16,8 +15,10 @@ public class minSubArrayLen_567
 {
     public boolean checkInclusion(String s1, String s2)
         {
-            int m = s1.length(), n = s2.length();
-            if (m > n) return false;
+            int m = s1.length();
+            int n = s2.length();
+            if (m > n)
+                return false;
 
             int[] cnt = new int[26];
             for (char c : s1.toCharArray())
@@ -27,7 +28,8 @@ public class minSubArrayLen_567
             for (int i = 0; i < m; i++)
                 cur[s2.charAt(i) - 'a']++;
 
-            if (check(cnt, cur)) return true;
+            if (check(cnt, cur))
+                return true;
 
             for (int i = m; i < n; i++)
             {
@@ -41,7 +43,8 @@ public class minSubArrayLen_567
         {
             for (int i = 0; i < 26; i++)
             {
-                if (cnt1[i] != cnt2[i]) return false;
+                if (cnt1[i] != cnt2[i])
+                    return false;
             }
             return true;
         }

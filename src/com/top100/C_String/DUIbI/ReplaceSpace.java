@@ -1,8 +1,10 @@
 package com.top100.C_String.DUIbI;
 /*
-【题目】请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
-【例题】输入：s = "We are happy."
-       输出："We%20are%20happy."
+【题目】
+    请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
+【例题】
+    输入：s = "We are happy."
+    输出："We%20are%20happy."
  */
 public class ReplaceSpace
 {

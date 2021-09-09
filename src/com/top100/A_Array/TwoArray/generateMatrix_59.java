@@ -14,7 +14,8 @@ public class generateMatrix_59
 {
     public int[][] generate(int n)
     {
-      int L = 0,R = n-1; int Up = 0, Bottom = n-1;
+      int L = 0,R = n-1;
+      int Up = 0, Bottom = n-1;
       int map [][] = new int[n][n];
       int num = 1,target = n * n;
 

@@ -20,7 +20,8 @@ public class ThreeSum_sqrt_633
 {
     public boolean judgeSquareSum(int c)
     {
-        int a = 0 ,b =(int) Math.sqrt(c);
+        int a = 0;
+        int b =(int) Math.sqrt(c);
 
         while(a <= b)
         {

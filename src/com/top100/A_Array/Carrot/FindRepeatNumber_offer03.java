@@ -19,22 +19,15 @@ public class FindRepeatNumber_offer03
 {
     public int repeat(int[] nums)
     {
-        int len = nums.length;
-        if(nums==null||len==0)
-            return -1;
+        if(nums.length == 0)   return -1;
 
         Set<Integer> set = new HashSet<>();
         for(int num : nums)
         {
-            if(num < 0||num > len-1)
-                return -1;
-        }
-
-        Arrays.sort(nums);
-        for(int i = 0;i<len-1;i++)
-        {
-            if(nums[i]==nums[i+1])
-                return nums[i];
+            if(set.contains(num))
+                return num;
+            else
+                set.add(num);
         }
 
         return -1;

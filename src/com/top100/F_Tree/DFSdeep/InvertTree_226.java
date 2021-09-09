@@ -13,8 +13,8 @@ public class InvertTree_226
         root.right = root.left;
         root.left = temp;
 
-        invert(root.left);
-        invert(root.right);
+        root.left = invert(root.left);
+        root.right = invert(root.right);
 
         return root;
     }

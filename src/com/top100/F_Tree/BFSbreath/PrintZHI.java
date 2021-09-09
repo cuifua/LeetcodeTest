@@ -21,12 +21,11 @@ public class PrintZHI
     public ArrayList<ArrayList<Integer>> Print(TreeNode pRoot)
     {
         ArrayList<ArrayList<Integer> > result = new ArrayList<>();
-
-        if(pRoot == null)
-            return result;
+        if(pRoot == null)   return result;
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(pRoot);
+        queue.offer(pRoot);
+
         boolean reverse = false;
 
         while(!queue.isEmpty())
@@ -38,9 +37,10 @@ public class PrintZHI
             {
                 TreeNode node = queue.poll();
                 list.add(node.val);
-                if(node.left != null) queue.add(node.left);
-                if(node.right != null) queue.add(node.right);
+                if(node.left != null)   queue.offer(node.left);
+                if(node.right != null)  queue.offer(node.right);
             }
+
             if(reverse)
                 Collections.reverse(list);
 

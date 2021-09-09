@@ -14,9 +14,9 @@ import java.util.*;
      ‰»Î: nums = [1], k = 1
      ‰≥ˆ: [1]
  */
-class TopKFrequent
+class TopKFrequent_347
 {
-    public int[] topKFrequent (int[] nums, int k)
+    public static int[] topKFrequent (int[] nums, int k)
     {
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -24,7 +24,7 @@ class TopKFrequent
             map.put(num, map.getOrDefault(num, 0) + 1);
 
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>()
+        PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>()//Ωµ–Ú£¨–°∂•
         {
             @Override
             public int compare(Integer a, Integer b)
@@ -36,7 +36,7 @@ class TopKFrequent
         for(Integer m : map.keySet())
         {
             if(pq.size() < k)
-                pq.add(m);
+                pq.offer(m);
 
             else if(map.get(pq.peek()) < map.get(m))
             {
@@ -46,19 +46,20 @@ class TopKFrequent
         }
 
         int[] res = new int[k];
-        int i = 0;
+        int index = 0;
         while(! pq.isEmpty())
-        {
-            res[i++] = pq.poll();
-        }
+            res[index++] = pq.poll();
+
         return res;
     }
 
-    @Test
-    public void test01()
+    public static void main(String[] args)
     {
-        System.out.println(topKFrequent(new int[] {1,1,1,2,2,3}, 2));
+        int[] nums = new int[]{1,1,1,2,2,3};
+        System.out.println(Arrays.toString(topKFrequent(nums, 2)));
     }
+
+
 }
 
 

@@ -1,5 +1,7 @@
 package com.top100.D_QueueStack;
 
+import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.Stack;
 
 /*
@@ -27,8 +29,7 @@ public class IsVaild_20
 {
     public boolean usvalid (String s)
     {
-        if(s.isEmpty())
-            return true;
+        if(s.isEmpty()) return true;
         Stack<Character> Mystack = new Stack<>();
 
         for(char c : s.toCharArray())
@@ -45,3 +46,7 @@ public class IsVaild_20
         return Mystack.isEmpty();
     }
 }
+
+
+
+

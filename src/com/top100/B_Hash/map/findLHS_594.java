@@ -3,7 +3,7 @@ package com.top100.B_Hash.map;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/*
  * 【题目】
  *      和谐数组是指一个数组里元素的最大值和最小值之间的差别 正好是 1 。
  *      现在，给你一个整数数组 nums ，请你在所有可能的子序列中找到最长的和谐子序列的长度。
@@ -29,10 +29,11 @@ public class findLHS_594
 
         //put all the numbers in this map
         for(int num : nums)
-            map.put(num,map.getOrDefault(num,0)+1);
+            map.put(num,map.getOrDefault(num,0)+1);// 1  2  3  5  7 key
+                                                              // 1  3  2  1  1 value
 
        int longest = 0;
-       for(int num : map.keySet())
+       for(int num : map.keySet())// 1  2  3  5  7 key
        {
            if(map.containsKey(num+1))
                longest = Math.max(longest,map.get(num)+map.get(num+1));

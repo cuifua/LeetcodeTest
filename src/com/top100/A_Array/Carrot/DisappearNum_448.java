@@ -1,7 +1,6 @@
 package com.top100.A_Array.Carrot;
 import java.util.ArrayList;
 import java.util.List;
-
 /*
 【题目】
     给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。

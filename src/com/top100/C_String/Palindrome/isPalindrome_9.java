@@ -1,5 +1,5 @@
 package com.top100.C_String.Palindrome;
-/**
+/*
  * 【题目】
  *      给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
         回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
@@ -45,5 +45,31 @@ public class isPalindrome_9
             div /= 100;
         }
         return true;
+    }
+
+    public boolean isPalindrome(String s)//这可不就是重构吗【类型不同】【顺序不同】【数量不同】
+    {
+       if(s.length() == 1)   return true;
+
+       int i = 0;
+       int j = s.length()-1;
+
+       while(i < j)
+       {
+           char left = s.charAt(i);
+           char right = s.charAt(j);
+
+           if(! Character.isLetterOrDigit(left))  i++;
+           else if(! Character.isLetterOrDigit(right))  j--;
+           else
+           {
+               left = Character.toLowerCase(left);
+               right = Character.toLowerCase(right);
+               if(left != right)  return false;
+               i++;
+               j--;
+           }
+       }
+    return true;
     }
 }

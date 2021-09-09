@@ -31,8 +31,8 @@ public class combine_77
     public List<List<Integer>> combine(int n, int k)
     {
         List<List<Integer>> res = new ArrayList<>();
-        if (k <= 0 || n < k)
-            return res;
+        if (k <= 0 || n < k)  return res;
+
 
         // 从 1 开始是题目的设定
         Deque<Integer> path = new ArrayDeque<>();

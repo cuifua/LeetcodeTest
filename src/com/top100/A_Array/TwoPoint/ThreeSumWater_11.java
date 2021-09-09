@@ -1,5 +1,7 @@
 package com.top100.A_Array.TwoPoint;
 
+import org.junit.Test;
+
 /*
  * 【题目】
  *      给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点(i,ai) 。在坐标内画 n 条垂直线，
@@ -13,21 +15,28 @@ package com.top100.A_Array.TwoPoint;
  */
 public class ThreeSumWater_11
 {
-    public int water(int[] height)
+    public int maxarea(int[] curr)
     {
-        int L = 0, R = height.length-1;
+        int left = 0;
+        int right = curr.length - 1;
         int res = 0;
 
-        while(L < R)
+        while (left < right)
         {
-            int h = Math.min(height[L],height[R]);
-            res = Math.max(res,(R-L)*h);
+            int kuan = Math.min(curr[left],curr[right]);
+            res = Math.max(kuan * (right - left),res);
 
-            if(height[L] < height[R])
-                ++L;
-            else
-                --R;
+            if (curr[left] < curr[right]) ++left;
+            else --right;
         }
         return res;
+    }
+
+
+    @Test
+    public void test()
+    {
+        int[] ts = {1,8,6,2,5,4,8,3,7};
+        System.out.println(maxarea(ts));
     }
 }

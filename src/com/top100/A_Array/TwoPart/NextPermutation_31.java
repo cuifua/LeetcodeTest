@@ -1,4 +1,4 @@
-package com.top100.I_Backtracking;
+package com.top100.A_Array.TwoPart;
 /*
 【题目】  实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
          如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
@@ -16,14 +16,14 @@ package com.top100.I_Backtracking;
 
 import org.junit.Test;
 
-public class NextPermutation
+public class NextPermutation_31
 {
     public void res (int[] nums)
     {
         int i = nums.length - 2;
 
         while( i >=0 && nums[i] >= nums[i+1])        //只要后一个比前一个小，就继续往前，旨在从后往前直到不能降序为止，比如【1，4，2，6，4，3】
-        {                                           //3比4小，4比6小，但6不比2小，停，此时nums[i]=2
+        {                                            //3比4小，4比6小，但6不比2小，停，此时nums[i]=2
             i--;
         };
 
@@ -53,6 +53,7 @@ public class NextPermutation
             swap(nums,L++,R--);
         }
     }
+
 
 
 

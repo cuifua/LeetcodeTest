@@ -1,4 +1,4 @@
-package com.top100.I_Backtracking;
+package com.top100.I_Backtracking.Other;
 /*
 【题目】   给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是 2 。
 【例题】   输入：[4, 6, 7, 7]
